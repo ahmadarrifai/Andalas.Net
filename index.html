@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Andalas.Net — Internet untuk Negeri</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,600;0,700;0,800;1,800&display=swap" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at top, #0d2b52 0%, #061224 75%);
+      color: #ffffff;
+      min-height: 100vh;
+      padding: 16px 14px 96px;
+    }
+    .container {
+      max-width: 520px;
+      margin: 0 auto;
+    }
+
+    /* Header Mewah Pojok Kiri Atas */
+    .top-luxury-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 16px;
+      padding: 10px 14px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, rgba(250, 204, 21, 0.14), rgba(56, 189, 248, 0.1));
+      border: 1px solid rgba(250, 204, 21, 0.42);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.28);
+    }
+    .brand-logo-wrap {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+    .brand-logo-emblem {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #0b2550, #051226);
+      border: 1.5px solid #facc15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+    }
+    .brand-logo-emblem .wifi-mini {
+      font-size: 0.62rem;
+      line-height: 1;
+      color: #fde047;
+      margin-bottom: 1px;
+    }
+    .brand-logo-emblem .a-3d {
+      font-size: 1.35rem;
+      font-weight: 800;
+      font-style: italic;
+      line-height: 1;
+      background: linear-gradient(180deg, #ffffff 0%, #fde047 60%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .luxury-brand-name {
+      font-size: 1.38rem;
+      font-weight: 800;
+      font-style: italic;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, #ffffff 0%, #fde047 65%, #facc15 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+    .luxury-sub {
+      font-size: 0.66rem;
+      font-weight: 700;
+      color: #fde047;
+      letter-spacing: 0.05em;
+      text-align: right;
+    }
+
+    /* Brosur Utama */
+    .brosur-card {
+      border-radius: 22px;
+      overflow: hidden;
+      background: #072661;
+      border: 2px solid rgba(250, 204, 21, 0.5);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+      margin-bottom: 18px;
+    }
+    .brosur-hero {
+      background: linear-gradient(120deg, #e0f2fe 0%, #bae6fd 52%, #7dd3fc 100%);
+      color: #062156;
+      padding: 18px 16px 16px;
+    }
+    .brosur-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+    .brosur-kicker {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #062156;
+      letter-spacing: 0.03em;
+    }
+    .brosur-headline {
+      font-size: 2rem;
+      font-weight: 800;
+      line-height: 0.98;
+      color: #063182;
+      letter-spacing: -0.03em;
+    }
+
+    /* Lencana Logo 3D Emas Utuh */
+    .brosur-logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(145deg, #0b2550, #051226);
+      border: 2px solid #facc15;
+      border-radius: 14px;
+      padding: 7px 13px 7px 9px;
+      box-shadow: 0 8px 16px rgba(6, 33, 86, 0.25);
+      flex-shrink: 0;
+    }
+    .brosur-logo-icon {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      line-height: 1;
+    }
+    .brosur-logo-icon .wave {
+      font-size: 0.65rem;
+      color: #fde047;
+    }
+    .brosur-logo-icon .letter {
+      font-size: 1.45rem;
+      font-weight: 800;
+      font-style: italic;
+      background: linear-gradient(180deg, #ffffff 0%, #fde047 60%, #d97706 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .brosur-logo-label {
+      font-size: 0.98rem;
+      font-weight: 800;
+      font-style: italic;
+      background: linear-gradient(90deg, #ffffff 0%, #fde047 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      white-space: nowrap;
+    }
+
+    .brosur-ribbon {
+      display: inline-block;
+      background: linear-gradient(90deg, #eab308, #facc15);
+      color: #062156;
+      font-weight: 800;
+      font-size: 0.78rem;
+      padding: 5px 12px;
+      border-radius: 6px;
+      margin: 4px 0 8px;
+    }
+    .brosur-subcopy {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #0f294a;
+      line-height: 1.38;
+      margin-bottom: 12px;
+    }
+
+    /* Visual Jaringan Wi-Fi Antar Desa 3D (Tanpa Gambar Gagal Muat) */
+    .village-net-box {
+      position: relative;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 2px solid #ffffff;
+      box-shadow: 0 10px 22px rgba(6, 33, 86, 0.28);
+      margin-bottom: 14px;
+      background: linear-gradient(180deg, #0c4a6e 0%, #07295c 58%, #166534 100%);
+      height: 196px;
+      padding: 12px;
+    }
+    .village-net-anim {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .signal-ring {
+      position: absolute;
+      left: 50%;
+      top: 45%;
+      width: 46px;
+      height: 46px;
+      margin-left: -23px;
+      margin-top: -23px;
+      border-radius: 999px;
+      border: 2px solid rgba(125, 211, 252, 0.85);
+      animation: pulseSignal 2.4s infinite ease-out;
+    }
+    .signal-ring.r2 {
+      animation-delay: 0.8s;
+      border-color: rgba(250, 204, 21, 0.78);
+    }
+    .signal-ring.r3 {
+      animation-delay: 1.6s;
+    }
+    @keyframes pulseSignal {
+      0% { transform: scale(0.4); opacity: 0.95; }
+      100% { transform: scale(3.5); opacity: 0; }
+    }
+    .village-nodes-bar {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .village-chip {
+      background: rgba(6, 21, 48, 0.82);
+      border: 1px solid rgba(125, 211, 252, 0.55);
+      color: #e0f2fe;
+      font-size: 0.62rem;
+      font-weight: 800;
+      padding: 4px 8px;
+      border-radius: 999px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .village-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #4ade80;
+    }
+    .village-center-hub {
+      position: relative;
+      z-index: 3;
+      margin-top: 14px;
+      text-align: center;
+    }
+    .village-hub-title {
+      display: inline-block;
+      background: rgba(6, 21, 48, 0.72);
+      border: 1px solid rgba(250, 204, 21, 0.55);
+      color: #fde047;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 999px;
+    }
+    .brosur-vip-badge {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      z-index: 4;
+      background: linear-gradient(180deg, #071936 0%, #0e346b 100%);
+      color: #ffffff;
+      border: 2px solid #facc15;
+      border-radius: 14px;
+      padding: 8px 12px;
+      text-align: center;
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.38);
+    }
+    .brosur-vip-badge .atas {
+      font-size: 0.62rem;
+      font-weight: 800;
+      color: #fde047;
+      display: block;
+    }
+    .brosur-vip-badge .tengah {
+      font-size: 0.94rem;
+      font-weight: 800;
+      color: #ffffff;
+      display: block;
+      margin: 2px 0;
+    }
+    .brosur-vip-badge .bawah {
+      font-size: 0.58rem;
+      font-weight: 700;
+      color: #bae6fd;
+      display: block;
+    }
+
+    /* Daftar Harga dengan Speed Up to */
+    .brosur-price-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .brosur-price-pill {
+      display: flex;
+      align-items: stretch;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 2px solid #ffffff;
+      box-shadow: 0 6px 14px rgba(6, 33, 86, 0.22);
+      text-decoration: none;
+    }
+    .pill-left {
+      background: linear-gradient(180deg, #0b3d91 0%, #06235c 100%);
+      color: #ffffff;
+      padding: 8px 12px;
+      min-width: 132px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .pill-left .speed-upto {
+      font-size: 0.6rem;
+      font-weight: 800;
+      color: #fde047;
+      text-transform: uppercase;
+    }
+    .pill-left .mbps {
+      font-size: 1.32rem;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+    .pill-left .mbps small {
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .pill-right {
+      flex: 1;
+      background: #ffffff;
+      color: #dc2626;
+      padding: 8px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 6px;
+    }
+    .pill-price {
+      display: flex;
+      align-items: baseline;
+      gap: 2px;
+    }
+    .pill-price .rp {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: #062156;
+    }
+    .pill-price .angka {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+    .pill-price .ribu {
+      font-size: 0.74rem;
+      font-weight: 800;
+      line-height: 1.05;
+    }
+    .pill-price .ribu span {
+      display: block;
+      font-size: 0.55rem;
+      color: #475569;
+    }
+    .pill-tag-paket {
+      font-size: 0.64rem;
+      font-weight: 800;
+      background: #fef9c3;
+      color: #854d0e;
+      border: 1px solid #facc15;
+      padding: 4px 8px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    /* Strip 5 Keunggulan */
+    .brosur-icons-bar {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
+      background: linear-gradient(180deg, #0b46a8 0%, #072f75 100%);
+      padding: 12px 6px;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.25);
+    }
+    .b-icon-col { text-align: center; }
+    .b-icon-circle {
+      width: 34px;
+      height: 34px;
+      margin: 0 auto 5px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.05rem;
+    }
+    .b-icon-label {
+      font-size: 0.54rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.2;
+      text-transform: uppercase;
+    }
+
+    /* Footer Brosur */
+    .brosur-footer {
+      background: #051e4d;
+      padding: 14px 14px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .brosur-contact-stack {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .brosur-call-box {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 7px 10px;
+      text-decoration: none;
+      display: block;
+    }
+    .brosur-call-badge {
+      display: inline-block;
+      background: #facc15;
+      color: #062156;
+      font-size: 0.58rem;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 999px;
+      margin-bottom: 3px;
+    }
+    .brosur-call-number {
+      font-size: 0.98rem;
+      font-weight: 800;
+      color: #062156;
+      letter-spacing: -0.02em;
+    }
+    .brosur-email-link {
+      display: block;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(125, 211, 252, 0.35);
+      border-radius: 10px;
+      padding: 6px 9px;
+      color: #e0f2fe;
+      text-decoration: none;
+      font-size: 0.68rem;
+      font-weight: 700;
+      word-break: break-all;
+    }
+    .brosur-checklist {
+      list-style: none;
+      font-size: 0.62rem;
+      font-weight: 700;
+      color: #ffffff;
+      line-height: 1.65;
+      flex-shrink: 0;
+    }
+    .brosur-checklist li span {
+      color: #4ade80;
+      margin-right: 4px;
+    }
+
+    .scroll-cta {
+      display: block;
+      text-align: center;
+      text-decoration: none;
+      background: linear-gradient(90deg, #0284c7, #00c2ff);
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 0.94rem;
+      padding: 14px 16px;
+      border-radius: 14px;
+      margin-bottom: 28px;
+      box-shadow: 0 10px 24px rgba(2, 132, 199, 0.35);
+    }
+
+    /* Pilihan Paket & Form */
+    .section-title {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.88rem;
+      margin-bottom: 20px;
+    }
+    .paket-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .paket-card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
+      padding: 20px;
+    }
+    .paket-card.populer {
+      border: 1.5px solid #facc15;
+      background: rgba(250, 204, 21, 0.07);
+    }
+    .paket-tag {
+      display: inline-block;
+      background: linear-gradient(90deg, #ca8a04, #facc15);
+      color: #061224;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+    .paket-name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+    .paket-speed {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: #38bdf8;
+      margin-bottom: 6px;
+    }
+    .paket-speed span.upto {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #fde047;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-right: 4px;
+    }
+    .paket-price {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 12px;
+    }
+    .paket-fitur {
+      list-style: none;
+      color: #cbd5e1;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 16px;
+    }
+    .btn-pilih {
+      display: block;
+      width: 100%;
+      text-align: center;
+      background: linear-gradient(90deg, #0284c7, #00c2ff);
+      border: none;
+      color: #ffffff;
+      padding: 12px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+    }
+    .paket-form-wrap {
+      display: none;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(255, 255, 255, 0.16);
+    }
+    .paket-form-wrap.aktif { display: block; }
+    .paket-form-title {
+      font-size: 0.96rem;
+      font-weight: 800;
+      color: #fde047;
+      margin-bottom: 14px;
+    }
+    .form-group { margin-bottom: 14px; }
+    .form-group label {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: #e2e8f0;
+      margin-bottom: 6px;
+    }
+    .form-control {
+      width: 100%;
+      padding: 11px 13px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      background: rgba(6, 18, 36, 0.85);
+      color: #ffffff;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+    .form-control:focus { outline: none; border-color: #38bdf8; }
+    .file-input { padding: 9px 11px; font-size: 0.84rem; }
+    .ktp-preview-box {
+      display: none;
+      margin-top: 8px;
+      padding: 10px;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(56, 189, 248, 0.45);
+      text-align: center;
+    }
+    .ktp-preview-box.tampil { display: block; }
+    .ktp-preview-img {
+      max-width: 100%;
+      max-height: 150px;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 6px;
+      object-fit: contain;
+    }
+    .ktp-note {
+      font-size: 0.76rem;
+      color: #94a3b8;
+      line-height: 1.4;
+      margin-top: 5px;
+    }
+    .btn-gps {
+      width: 100%;
+      padding: 11px;
+      border-radius: 10px;
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      background: rgba(2, 132, 199, 0.25);
+      color: #8beaff;
+      font-weight: 700;
+      font-size: 0.88rem;
+      cursor: pointer;
+      margin-bottom: 8px;
+    }
+    .gps-status {
+      font-size: 0.78rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+    .btn-submit {
+      width: 100%;
+      border: none;
+      background: #16a34a;
+      color: #ffffff;
+      padding: 13px 16px;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+    .btn-submit-email {
+      width: 100%;
+      border: 1px solid rgba(125, 211, 252, 0.45);
+      background: rgba(14, 116, 144, 0.35);
+      color: #e0f2fe;
+      padding: 11px 14px;
+      border-radius: 11px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .official-footer {
+      margin-top: 28px;
+      padding: 18px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      text-align: center;
+      font-size: 0.82rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    .official-footer strong { color: #fde047; font-size: 0.95rem; }
+    .official-footer a { color: #7dd3fc; text-decoration: none; font-weight: 700; }
+
+    .wa-float-btn {
+      position: fixed;
+      right: 16px;
+      bottom: 16px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      background: #16a34a;
+      color: #ffffff;
+      padding: 10px 14px 10px 10px;
+      border-radius: 999px;
+      box-shadow: 0 10px 24px rgba(22, 163, 74, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.28);
+      font-weight: 700;
+      font-size: 0.82rem;
+    }
+    .wa-float-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      background: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .wa-float-icon svg { width: 18px; height: 18px; fill: #16a34a; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- HEADER MEWAH POJOK KIRI ATAS -->
+    <header class="top-luxury-header">
+      <div class="brand-logo-wrap">
+        <div class="brand-logo-emblem">
+          <span class="wifi-mini">📶</span>
+          <span class="a-3d">A</span>
+        </div>
+        <div class="luxury-brand-name">Andalas.Net</div>
+      </div>
+      <div class="luxury-sub">KAB. TANJUNG JABUNG BARAT</div>
+    </header>
+
+    <!-- BROSUR PROMO UTAMA -->
+    <section class="brosur-card" aria-label="Brosur Paket Internet Andalas.Net">
+      <div class="brosur-hero">
+        <div class="brosur-top-row">
+          <div>
+            <div class="brosur-kicker">INTERNET</div>
+            <div class="brosur-headline">WIFI<br>MURAH</div>
+          </div>
+
+          <div class="brosur-logo-badge">
+            <div class="brosur-logo-icon">
+              <span class="wave">📶</span>
+              <span class="letter">A</span>
+            </div>
+            <span class="brosur-logo-label">Andalas.Net</span>
+          </div>
+        </div>
+
+        <div class="brosur-ribbon">CEPAT, STABIL, HEMAT!</div>
+        <div class="brosur-subcopy">Koneksi Wi-Fi antar desa • Promo s/d Akhir Desember 2026</div>
+
+        <div class="village-net-box">
+          <div class="village-net-anim" aria-hidden="true">
+            <div class="signal-ring"></div>
+            <div class="signal-ring r2"></div>
+            <div class="signal-ring r3"></div>
+          </div>
+
+          <div class="village-nodes-bar">
+            <span class="village-chip"><span class="village-dot"></span> Wi-Fi Desa Aktif</span>
+            <span class="village-chip">📡 Link Antar Desa</span>
+          </div>
+
+          <div class="village-center-hub">
+            <span class="village-hub-title">🗼 Backbone Desa • Sinyal Merata</span>
+          </div>
+
+          <div class="brosur-vip-badge">
+            <span class="atas">PENAWARAN SPESIAL</span>
+            <span class="tengah">PASANG HEMAT RP 100.000</span>
+            <span class="bawah">Jaringan Stabil Tanpa Ribet!</span>
+          </div>
+        </div>
+
+        <div class="brosur-price-stack">
+          <a href="#card-hemat" class="brosur-price-pill" onclick="bukaFormPaket('hemat')">
+            <div class="pill-left">
+              <span class="speed-upto">Speed Up to</span>
+              <span class="mbps">20 <small>Mbps</small></span>
+            </div>
+            <div class="pill-right">
+              <div class="pill-price">
+                <span class="rp">Rp</span>
+                <span class="angka">200</span>
+                <span class="ribu">.000<span>/BULAN</span></span>
+              </div>
+              <span class="pill-tag-paket">Hemat</span>
+            </div>
+          </a>
+
+          <a href="#card-keluarga" class="brosur-price-pill" onclick="bukaFormPaket('keluarga')">
+            <div class="pill-left">
+              <span class="speed-upto">Speed Up to</span>
+              <span class="mbps">30 <small>Mbps</small></span>
+            </div>
+            <div class="pill-right">
+              <div class="pill-price">
+                <span class="rp">Rp</span>
+                <span class="angka">270</span>
+                <span class="ribu">.000<span>/BULAN</span></span>
+              </div>
+              <span class="pill-tag-paket">⭐ Favorit</span>
+            </div>
+          </a>
+
+          <a href="#card-bisnis" class="brosur-price-pill" onclick="bukaFormPaket('bisnis')">
+            <div class="pill-left">
+              <span class="speed-upto">Speed Up to</span>
+              <span class="mbps">40 <small>Mbps</small></span>
+            </div>
+            <div class="pill-right">
+              <div class="pill-price">
+                <span class="rp">Rp</span>
+                <span class="angka">330</span>
+                <span class="ribu">.000<span>/BULAN</span></span>
+              </div>
+              <span class="pill-tag-paket">Bisnis</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="brosur-icons-bar">
+        <div class="b-icon-col">
+          <div class="b-icon-circle">▶️</div>
+          <div class="b-icon-label">Streaming Tanpa Buffering</div>
+        </div>
+        <div class="b-icon-col">
+          <div class="b-icon-circle">🎮</div>
+          <div class="b-icon-label">Gaming Lebih Stabil</div>
+        </div>
+        <div class="b-icon-col">
+          <div class="b-icon-circle">💻</div>
+          <div class="b-icon-label">Meeting Online Lancar</div>
+        </div>
+        <div class="b-icon-col">
+          <div class="b-icon-circle">🏘️</div>
+          <div class="b-icon-label">Jangkauan Luas</div>
+        </div>
+        <div class="b-icon-col">
+          <div class="b-icon-circle">♾️</div>
+          <div class="b-icon-label">Kuota Unlimited</div>
+        </div>
+      </div>
+
+      <div class="brosur-footer">
+        <div class="brosur-contact-stack">
+          <a
+            href="https://wa.me/6281532052690?text=Halo%20Admin%20Rafi,%20saya%20tertarik%20pasang%20Wi-Fi%20Andalas.Net"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="brosur-call-box"
+          >
+            <span class="brosur-call-badge">HUBUNGI ADMIN (RAFI)</span>
+            <div class="brosur-call-number">0815-3205-2690</div>
+          </a>
+          <a
+            href="mailto:andalas.net2026@gmail.com?subject=Info%20Pemasangan%20Wi-Fi%20Andalas.Net"
+            class="brosur-email-link"
+          >
+            ✉️ andalas.net2026@gmail.com
+          </a>
+        </div>
+        <ul class="brosur-checklist">
+          <li><span>✔</span>HARGA BERSAHABAT</li>
+          <li><span>✔</span>PEMASANGAN CEPAT</li>
+          <li><span>✔</span>LAYANAN RAMAH</li>
+          <li><span>✔</span>SUPPORT 24 JAM</li>
+        </ul>
+      </div>
+    </section>
+
+    <a href="#paket" class="scroll-cta">⬇️ Scroll ke Bawah untuk Pilih Paket & Daftar</a>
+
+    <section id="paket">
+      <h2 class="section-title">Pendaftaran Paket Internet</h2>
+      <p class="section-subtitle">Pilih paket di bawah ini, isi data KTP & titik lokasi, lalu kirim langsung ke Admin (Rafi)</p>
+
+      <div class="paket-list">
+        <div class="paket-card" id="card-hemat">
+          <div class="paket-name">Paket Hemat</div>
+          <div class="paket-speed"><span class="upto">Speed Up to</span> 20 Mbps</div>
+          <div class="paket-price">Rp 200.000 / bulan</div>
+          <ul class="paket-fitur">
+            <li>✓ Ideal untuk 2–4 perangkat</li>
+            <li>✓ Lancar untuk browsing, sosmed & belajar daring</li>
+            <li>✓ Gratis sewa modem Wi-Fi</li>
+          </ul>
+          <button type="button" class="btn-pilih" onclick="bukaFormPaket('hemat')">Pilih Paket Hemat & Isi Data</button>
+
+          <div class="paket-form-wrap" id="form-wrap-hemat">
+            <div class="paket-form-title">Form Pendaftaran — Paket Hemat (Speed Up to 20 Mbps • Rp 200.000/bln)</div>
+            <form onsubmit="kirimKeWA(event, 'hemat', 'Paket Hemat - Speed Up to 20 Mbps (Rp 200.000/bln)')">
+              <div class="form-group">
+                <label for="nama-hemat">Nama Lengkap (Sesuai KTP)</label>
+                <input type="text" id="nama-hemat" class="form-control" placeholder="Contoh: Budi Santoso" required />
+              </div>
+              <div class="form-group">
+                <label for="nik-hemat">Nomor NIK KTP (16 Digit)</label>
+                <input type="text" id="nik-hemat" class="form-control" inputmode="numeric" pattern="[0-9]{16}" maxlength="16" placeholder="Contoh: 150601xxxxxxxxxx" required />
+              </div>
+              <div class="form-group">
+                <label for="ktp-hemat">Upload Foto KTP</label>
+                <input type="file" id="ktp-hemat" class="form-control file-input" accept="image/*" onchange="tampilPreviewKTP('hemat')" required />
+                <div class="ktp-preview-box" id="preview-wrap-hemat">
+                  <img id="preview-img-hemat" class="ktp-preview-img" alt="Pratinjau Foto KTP" />
+                  <div id="preview-nama-hemat" class="ktp-note"></div>
+                </div>
+                <div class="ktp-note">Setelah klik Kirim, lampirkan foto KTP ini langsung di chat WhatsApp atau Email Admin.</div>
+              </div>
+              <div class="form-group">
+                <label for="wa-hemat">Nomor WhatsApp Aktif</label>
+                <input type="tel" id="wa-hemat" class="form-control" placeholder="Contoh: 081234567890" required />
+              </div>
+              <div class="form-group">
+                <label for="alamat-hemat">Alamat Lengkap Pemasangan</label>
+                <textarea id="alamat-hemat" rows="2" class="form-control" placeholder="Jalan, lorong, RT/RW, desa/kelurahan, patokan..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Titik Koordinat Lokasi</label>
+                <button type="button" class="btn-gps" onclick="ambilLokasi('hemat')">📍 Ambil Titik Koordinat Lokasi Saya</button>
+                <input type="text" id="koordinat-hemat" class="form-control" placeholder="Koordinat akan terisi otomatis..." readonly />
+                <div id="status-hemat" class="gps-status">Pastikan GPS/Lokasi HP aktif, lalu tekan tombol di atas.</div>
+              </div>
+              <button type="submit" class="btn-submit">💬 Kirim Data ke WA Admin (Rafi)</button>
+              <button type="button" class="btn-submit-email" onclick="kirimKeEmail('hemat', 'Paket Hemat - Speed Up to 20 Mbps (Rp 200.000/bln)')">✉️ Kirim via Email (andalas.net2026@gmail.com)</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="paket-card populer" id="card-keluarga">
+          <span class="paket-tag">⭐ Pilihan Favorit</span>
+          <div class="paket-name">Paket Keluarga</div>
+          <div class="paket-speed"><span class="upto">Speed Up to</span> 30 Mbps</div>
+          <div class="paket-price">Rp 270.000 / bulan</div>
+          <ul class="paket-fitur">
+            <li>✓ Ideal untuk 5–7 perangkat</li>
+            <li>✓ Untuk game yang lebih stabil & streaming lancar</li>
+            <li>✓ Gratis sewa modem Wi-Fi</li>
+          </ul>
+          <button type="button" class="btn-pilih" onclick="bukaFormPaket('keluarga')">Pilih Paket Keluarga & Isi Data</button>
+
+          <div class="paket-form-wrap" id="form-wrap-keluarga">
+            <div class="paket-form-title">Form Pendaftaran — Paket Keluarga (Speed Up to 30 Mbps • Rp 270.000/bln)</div>
+            <form onsubmit="kirimKeWA(event, 'keluarga', 'Paket Keluarga - Speed Up to 30 Mbps (Rp 270.000/bln)')">
+              <div class="form-group">
+                <label for="nama-keluarga">Nama Lengkap (Sesuai KTP)</label>
+                <input type="text" id="nama-keluarga" class="form-control" placeholder="Contoh: Budi Santoso" required />
+              </div>
+              <div class="form-group">
+                <label for="nik-keluarga">Nomor NIK KTP (16 Digit)</label>
+                <input type="text" id="nik-keluarga" class="form-control" inputmode="numeric" pattern="[0-9]{16}" maxlength="16" placeholder="Contoh: 150601xxxxxxxxxx" required />
+              </div>
+              <div class="form-group">
+                <label for="ktp-keluarga">Upload Foto KTP</label>
+                <input type="file" id="ktp-keluarga" class="form-control file-input" accept="image/*" onchange="tampilPreviewKTP('keluarga')" required />
+                <div class="ktp-preview-box" id="preview-wrap-keluarga">
+                  <img id="preview-img-keluarga" class="ktp-preview-img" alt="Pratinjau Foto KTP" />
+                  <div id="preview-nama-keluarga" class="ktp-note"></div>
+                </div>
+                <div class="ktp-note">Setelah klik Kirim, lampirkan foto KTP ini langsung di chat WhatsApp atau Email Admin.</div>
+              </div>
+              <div class="form-group">
+                <label for="wa-keluarga">Nomor WhatsApp Aktif</label>
+                <input type="tel" id="wa-keluarga" class="form-control" placeholder="Contoh: 081234567890" required />
+              </div>
+              <div class="form-group">
+                <label for="alamat-keluarga">Alamat Lengkap Pemasangan</label>
+                <textarea id="alamat-keluarga" rows="2" class="form-control" placeholder="Jalan, lorong, RT/RW, desa/kelurahan, patokan..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Titik Koordinat Lokasi</label>
+                <button type="button" class="btn-gps" onclick="ambilLokasi('keluarga')">📍 Ambil Titik Koordinat Lokasi Saya</button>
+                <input type="text" id="koordinat-keluarga" class="form-control" placeholder="Koordinat akan terisi otomatis..." readonly />
+                <div id="status-keluarga" class="gps-status">Pastikan GPS/Lokasi HP aktif, lalu tekan tombol di atas.</div>
+              </div>
+              <button type="submit" class="btn-submit">💬 Kirim Data ke WA Admin (Rafi)</button>
+              <button type="button" class="btn-submit-email" onclick="kirimKeEmail('keluarga', 'Paket Keluarga - Speed Up to 30 Mbps (Rp 270.000/bln)')">✉️ Kirim via Email (andalas.net2026@gmail.com)</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="paket-card" id="card-bisnis">
+          <div class="paket-name">Paket Bisnis</div>
+          <div class="paket-speed"><span class="upto">Speed Up to</span> 40 Mbps</div>
+          <div class="paket-price">Rp 330.000 / bulan</div>
+          <ul class="paket-fitur">
+            <li>✓ Ideal untuk 7–9 perangkat</li>
+            <li>✓ Koneksi stabil untuk aktivitas berat & multi-perangkat</li>
+            <li>✓ Gratis sewa modem Wi-Fi & prioritas bantuan teknis</li>
+          </ul>
+          <button type="button" class="btn-pilih" onclick="bukaFormPaket('bisnis')">Pilih Paket Bisnis & Isi Data</button>
+
+          <div class="paket-form-wrap" id="form-wrap-bisnis">
+            <div class="paket-form-title">Form Pendaftaran — Paket Bisnis (Speed Up to 40 Mbps • Rp 330.000/bln)</div>
+            <form onsubmit="kirimKeWA(event, 'bisnis', 'Paket Bisnis - Speed Up to 40 Mbps (Rp 330.000/bln)')">
+              <div class="form-group">
+                <label for="nama-bisnis">Nama Lengkap (Sesuai KTP)</label>
+                <input type="text" id="nama-bisnis" class="form-control" placeholder="Contoh: Budi Santoso" required />
+              </div>
+              <div class="form-group">
+                <label for="nik-bisnis">Nomor NIK KTP (16 Digit)</label>
+                <input type="text" id="nik-bisnis" class="form-control" inputmode="numeric" pattern="[0-9]{16}" maxlength="16" placeholder="Contoh: 150601xxxxxxxxxx" required />
+              </div>
+              <div class="form-group">
+                <label for="ktp-bisnis">Upload Foto KTP</label>
+                <input type="file" id="ktp-bisnis" class="form-control file-input" accept="image/*" onchange="tampilPreviewKTP('bisnis')" required />
+                <div class="ktp-preview-box" id="preview-wrap-bisnis">
+                  <img id="preview-img-bisnis" class="ktp-preview-img" alt="Pratinjau Foto KTP" />
+                  <div id="preview-nama-bisnis" class="ktp-note"></div>
+                </div>
+                <div class="ktp-note">Setelah klik Kirim, lampirkan foto KTP ini langsung di chat WhatsApp atau Email Admin.</div>
+              </div>
+              <div class="form-group">
+                <label for="wa-bisnis">Nomor WhatsApp Aktif</label>
+                <input type="tel" id="wa-bisnis" class="form-control" placeholder="Contoh: 081234567890" required />
+              </div>
+              <div class="form-group">
+                <label for="alamat-bisnis">Alamat Lengkap Pemasangan</label>
+                <textarea id="alamat-bisnis" rows="2" class="form-control" placeholder="Jalan, lorong, RT/RW, desa/kelurahan, patokan..." required></textarea>
+              </div>
+              <div class="form-group">
+                <label>Titik Koordinat Lokasi</label>
+                <button type="button" class="btn-gps" onclick="ambilLokasi('bisnis')">📍 Ambil Titik Koordinat Lokasi Saya</button>
+                <input type="text" id="koordinat-bisnis" class="form-control" placeholder="Koordinat akan terisi otomatis..." readonly />
+                <div id="status-bisnis" class="gps-status">Pastikan GPS/Lokasi HP aktif, lalu tekan tombol di atas.</div>
+              </div>
+              <button type="submit" class="btn-submit">💬 Kirim Data ke WA Admin (Rafi)</button>
+              <button type="button" class="btn-submit-email" onclick="kirimKeEmail('bisnis', 'Paket Bisnis - Speed Up to 40 Mbps (Rp 330.000/bln)')">✉️ Kirim via Email (andalas.net2026@gmail.com)</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="official-footer">
+      <div><strong>Andalas.Net</strong> — Kab. Tanjung Jabung Barat</div>
+      <div>WhatsApp Admin (Rafi): <a href="https://wa.me/6281532052690" target="_blank" rel="noopener noreferrer">0815-3205-2690</a></div>
+      <div>Email Resmi: <a href="mailto:andalas.net2026@gmail.com">andalas.net2026@gmail.com</a></div>
+    </footer>
+  </div>
+
+  <a
+    href="https://wa.me/6281532052690?text=Halo%20Admin%20Rafi%20(081532052690),%20saya%20ingin%20bertanya%20tentang%20layanan%20Andalas.Net"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="wa-float-btn"
+    aria-label="Live Chat WhatsApp Admin Rafi 081532052690"
+  >
+    <span class="wa-float-icon">
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 3C8.82 3 3 8.82 3 16c0 2.3.6 4.54 1.74 6.52L3 29l6.67-1.72A12.93 12.93 0 0 0 16 29c7.18 0 13-5.82 13-13S23.18 3 16 3zm7.54 18.42c-.32.9-1.86 1.72-2.56 1.82-.66.1-1.5.14-2.42-.15-.56-.18-1.28-.42-2.2-.82-3.88-1.68-6.41-5.6-6.61-5.86-.2-.26-1.58-2.1-1.58-4.01 0-1.91 1-2.85 1.36-3.24.36-.39.78-.49 1.04-.49.26 0 .52 0 .75.01.24.01.56-.09.88.67.32.78 1.1 2.69 1.2 2.89.1.2.16.43.03.69-.13.26-.2.43-.39.66-.2.23-.41.51-.59.69-.2.2-.4.41-.17.81.23.39 1.01 1.67 2.17 2.7 1.49 1.33 2.75 1.74 3.14 1.94.39.2.62.16.85-.1.23-.26.98-1.14 1.24-1.53.26-.39.52-.33.88-.2.36.13 2.28 1.08 2.67 1.27.39.2.65.29.75.46.1.16.1.95-.22 1.85z"/>
+      </svg>
+    </span>
+    <span>WA: 081532052690</span>
+  </a>
+
+  <script>
+    const NOMOR_ADMIN = "6281532052690";
+    const EMAIL_ADMIN = "andalas.net2026@gmail.com";
+
+    function bukaFormPaket(kodePaket) {
+      const semuaForm = document.querySelectorAll(".paket-form-wrap");
+      semuaForm.forEach(function (wrap) {
+        wrap.classList.remove("aktif");
+      });
+
+      const targetWrap = document.getElementById("form-wrap-" + kodePaket);
+      if (targetWrap) {
+        targetWrap.classList.add("aktif");
+        document.getElementById("card-" + kodePaket).scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }
+
+    function tampilPreviewKTP(kodePaket) {
+      const inputFile = document.getElementById("ktp-" + kodePaket);
+      const wrapPreview = document.getElementById("preview-wrap-" + kodePaket);
+      const imgPreview = document.getElementById("preview-img-" + kodePaket);
+      const namaPreview = document.getElementById("preview-nama-" + kodePaket);
+
+      if (inputFile.files && inputFile.files[0]) {
+        const file = inputFile.files[0];
+        const urlObjek = URL.createObjectURL(file);
+        imgPreview.src = urlObjek;
+        namaPreview.textContent = "File KTP dipilih: " + file.name;
+        wrapPreview.classList.add("tampil");
+      } else {
+        wrapPreview.classList.remove("tampil");
+      }
+    }
+
+    function ambilLokasi(kodePaket) {
+      const statusEl = document.getElementById("status-" + kodePaket);
+      const inputKoordinat = document.getElementById("koordinat-" + kodePaket);
+
+      if (!navigator.geolocation) {
+        statusEl.textContent = "Browser HP Anda tidak mendukung fitur lokasi GPS otomatis.";
+        return;
+      }
+
+      statusEl.style.color = "#94a3b8";
+      statusEl.textContent = "Sedang mengambil titik koordinat GPS... Mohon izinkan akses lokasi.";
+
+      navigator.geolocation.getCurrentPosition(
+        function (posisi) {
+          const lat = posisi.coords.latitude.toFixed(6);
+          const lng = posisi.coords.longitude.toFixed(6);
+          inputKoordinat.value = lat + ", " + lng;
+          statusEl.style.color = "#4ade80";
+          statusEl.textContent = "✓ Titik koordinat berhasil didapatkan!";
+        },
+        function () {
+          statusEl.style.color = "#f87171";
+          statusEl.textContent = "Gagal mengambil lokasi. Pastikan GPS aktif & izinkan akses lokasi di browser.";
+        },
+        { enableHighAccuracy: true, timeout: 15000 }
+      );
+    }
+
+    function susunPesanPendaftaran(kodePaket, namaPaket, saluran) {
+      const nama = document.getElementById("nama-" + kodePaket).value.trim();
+      const nik = document.getElementById("nik-" + kodePaket).value.trim();
+      const inputFile = document.getElementById("ktp-" + kodePaket);
+      const namaFileKTP = inputFile.files && inputFile.files[0] ? inputFile.files[0].name : "Belum dipilih";
+      const wa = document.getElementById("wa-" + kodePaket).value.trim();
+      const alamat = document.getElementById("alamat-" + kodePaket).value.trim();
+      const koordinat = document.getElementById("koordinat-" + kodePaket).value.trim();
+
+      let infoLokasi = "Belum diambil (akan shareloc manual)";
+      if (koordinat) {
+        const cleanCoord = koordinat.replace(/\s+/g, "");
+        infoLokasi = `${koordinat}\nLink Maps: https://maps.google.com/?q=${cleanCoord}`;
+      }
+
+      return {
+        nama,
+        pesanWA:
+          `*PENDAFTARAN PELANGGAN BARU ANDALAS.NET*\n\n` +
+          `• *Paket Dipilih:* ${namaPaket}\n` +
+          `• *Nama (KTP):* ${nama}\n` +
+          `• *NIK KTP:* ${nik}\n` +
+          `• *Foto KTP:* ${namaFileKTP} (akan dilampirkan di chat)\n` +
+          `• *No. WA:* ${wa}\n` +
+          `• *Alamat:* ${alamat}\n` +
+          `• *Titik Lokasi:* ${infoLokasi}\n\n` +
+          `Mohon info ketersediaan jaringan & jadwal pemasangan. Terima kasih!`,
+        pesanEmail:
+          `PENDAFTARAN PELANGGAN BARU ANDALAS.NET\n\n` +
+          `- Paket Dipilih: ${namaPaket}\n` +
+          `- Nama (KTP): ${nama}\n` +
+          `- NIK KTP: ${nik}\n` +
+          `- Foto KTP: ${namaFileKTP} (silakan lampirkan pada email ini)\n` +
+          `- No. WA: ${wa}\n` +
+          `- Alamat: ${alamat}\n` +
+          `- Titik Lokasi: ${infoLokasi}\n\n` +
+          `Mohon info ketersediaan jaringan & jadwal pemasangan. Terima kasih!`
+      };
+    }
+
+    function kirimKeWA(event, kodePaket, namaPaket) {
+      event.preventDefault();
+      const data = susunPesanPendaftaran(kodePaket, namaPaket, "WA");
+      const urlWA = `https://wa.me/${NOMOR_ADMIN}?text=${encodeURIComponent(data.pesanWA)}`;
+      window.open(urlWA, "_blank");
+    }
+
+    function kirimKeEmail(kodePaket, namaPaket) {
+      const form = document.querySelector(`#form-wrap-${kodePaket} form`);
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+      const data = susunPesanPendaftaran(kodePaket, namaPaket, "Email");
+      const subjek = `Pendaftaran Baru Andalas.Net - ${data.nama}`;
+      const urlMail = `mailto:${EMAIL_ADMIN}?subject=${encodeURIComponent(subjek)}&body=${encodeURIComponent(data.pesanEmail)}`;
+      window.location.href = urlMail;
+    }
+  </script>
+</body>
+</html>
